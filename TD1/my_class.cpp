@@ -1,6 +1,5 @@
 #include <iostream>
-#include <string>
-#include <my_class.h>
+#include "my_class.h"
 
 MyClass::MyClass(std::string str_value)
 {
