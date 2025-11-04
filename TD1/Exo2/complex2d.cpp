@@ -14,3 +14,19 @@ Complex2D::Complex2D(double valeur) : t_reel(valeur), t_imaginaire(valeur)
     t_reel = valeur;
     t_imaginaire = valeur;
 }
+
+void Complex2D::setReel(double reel) {
+    t_reel = reel;
+}
+
+void Complex2D::setImaginaire(double imaginaire) {
+    t_imaginaire = imaginaire;
+}
+
+double Complex2D::getReel() const {
+    return t_reel;
+}
+
+double Complex2D::getImaginaire() const {
+    return t_imaginaire;
+}

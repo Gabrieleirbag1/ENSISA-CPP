@@ -9,6 +9,11 @@ public:
     Complex2D(double reel, double imaginaire);
     Complex2D(double valeur);
 
+    void Complex2D::setReel(double reel);
+    void Complex2D::setImaginaire(double imaginaire);
+    double Complex2D::getReel() const;
+    double Complex2D::getImaginaire() const;
+
 private:
     double t_reel;
     double t_imaginaire;
