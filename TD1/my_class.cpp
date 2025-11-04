@@ -1,7 +1,8 @@
 #include <iostream>
 #include "my_class.h"
 
-MyClass::MyClass(std::string str_value)
+MyClass::MyClass(std::string str_value):
+t_str_value(str_value)
 {
     t_str_value = str_value;
 }
