@@ -6,7 +6,7 @@ SearchingAlgo::SearchingAlgo() {}
 
 int SearchingAlgo::search(std::vector<int> elements, int searchKey)
 {
-    int numberComparisons;
+    numberComparisons = 0;
     unsigned int vecSize = elements.size();
     for (unsigned int i = 0; i < vecSize; i++)
     {

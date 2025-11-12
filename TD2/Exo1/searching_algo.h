@@ -6,7 +6,7 @@
 #define SEARCHING_ALGO_H
 
 class SearchingAlgo {
-    private:
+    public:
         SearchingAlgo();
 
         int numberComparisons;
