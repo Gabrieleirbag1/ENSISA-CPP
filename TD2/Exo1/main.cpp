@@ -16,7 +16,7 @@ int main() {
     linearObj.displaySearchResults(std::cout, linear_results2, 4);
     std::cout << "----------------" << std::endl;
 
-    LinearSearch binaryObj;
+    BinarySearch binaryObj;
 
     int binary_results = binaryObj.search(testVector, 4);
     linearObj.displaySearchResults(std::cout, binary_results, 4);

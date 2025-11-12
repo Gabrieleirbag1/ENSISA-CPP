@@ -3,8 +3,8 @@
 #include <ostream>
 #include "searching_algo.h"
 
-#ifndef LINEAR_SEARCH_H
-#define LINEAR_SEARCH_H
+#ifndef BINARY_SEARCH_H
+#define BINARY_SEARCH_H
 
 class BinarySearch : public SearchingAlgo {
     public:
