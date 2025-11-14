@@ -1,10 +1,13 @@
 #include "matrix_base.h"
-#include <algorithm>
-#include <cmath>
 #include <iostream>
 
 template <typename T>
 MatrixBase<T>::MatrixBase()
+{
+}
+
+template <typename T>
+MatrixBase<T>::MatrixBase(vector<T, T>, size_t row, size_t col)
 {
 }
 

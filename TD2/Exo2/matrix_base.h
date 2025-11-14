@@ -11,17 +11,18 @@ class MatrixBase
 {
 public:
     MatrixBase();
+    MatrixBase(vector<T, T> data, size_t rows, size_t cols);
 
     vector<T, T> data;
     size_t rows;
     size_t cols;
 
-    void addElement(size_t row, size_t col);
-    vector<T, T> getElement(size_t row, size_t col) const;
-    size_t getRows() const;
-    size_t getCols() const;
+    virtual void addElement(size_t row, size_t col);
+    virtual vector<T, T> getElement(size_t row, size_t col) const;
+    virtual size_t getRows() const;
+    virtual size_t getCols() const;
 
-    ostream &display(ostream &os) const;
+    virtual ostream &display(ostream &os) const;
 };
 
 #include "matrix_base.tpp"
