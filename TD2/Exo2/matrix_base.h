@@ -6,7 +6,7 @@
 
 using namespace std;
 
-template <class T>
+template <typename T>
 class MatrixBase
 {
 public:
@@ -21,8 +21,7 @@ public:
     size_t getRows() const;
     size_t getCols() const;
 
-    ostream& display(ostream &) const;
-
+    ostream &display(ostream &os) const;
 };
 
 #endif
