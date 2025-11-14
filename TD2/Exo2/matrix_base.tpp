@@ -23,7 +23,12 @@ vector<vector<T>> MatrixBase<T>::getElement(T value) const
 {
     unsigned int dataSize = data.size();
     for (unsigned int i=0; i < dataSize; i++) {
-
+        unsigned int rowSize = data[i].size();
+        for (unsigned int j=0; j < rowSize; j++) {
+            if (data[i][j] == value) {
+                return data;
+            }
+        }
     }
 }
 
