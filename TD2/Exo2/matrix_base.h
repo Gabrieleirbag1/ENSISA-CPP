@@ -11,14 +11,14 @@ class MatrixBase
 {
 public:
     MatrixBase();
-    MatrixBase(vector<vector<T>> data, size_t rows, size_t cols, T value);
+    MatrixBase(vector<T> data, size_t rows, size_t cols, T value);
 
-    vector<vector<T>> data;
+    vector<T> data;
     size_t rows;
     size_t cols;
 
     virtual void addElement(size_t row, size_t col, T value);
-    virtual vector<vector<T>> getElement(T value) const;
+    virtual vector<T> getElement(T value) const;
     virtual size_t getRows() const;
     virtual size_t getCols() const;
 
