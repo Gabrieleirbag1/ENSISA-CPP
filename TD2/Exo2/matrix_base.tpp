@@ -7,7 +7,7 @@ MatrixBase<T>::MatrixBase()
 }
 
 template <typename T>
-MatrixBase<T>::MatrixBase(vector<T> data, size_t rows, size_t cols, T value)
+MatrixBase<T>::MatrixBase(size_t rows, size_t cols, T value)
 {
     data.assign(rows, (cols, value));
 }

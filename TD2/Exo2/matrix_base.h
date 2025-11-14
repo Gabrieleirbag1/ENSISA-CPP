@@ -11,7 +11,7 @@ class MatrixBase
 {
 public:
     MatrixBase();
-    MatrixBase(vector<T> data, size_t rows, size_t cols, T value);
+    MatrixBase(size_t rows, size_t cols, T value);
 
     vector<T> data;
     size_t rows;
