@@ -21,21 +21,9 @@ void MatrixBase<T>::addElement(size_t row, size_t col, T value)
 }
 
 template <typename T>
-vector<vector<T>> MatrixBase<T>::getElement(T value) const
+T MatrixBase<T>::getElement(size_t row, size_t col) const
 {
-    unsigned int dataSize = data.size();
-    for (unsigned int i = 0; i < dataSize; i++)
-    {
-        unsigned int rowSize = data[i].size();
-        for (unsigned int j = 0; j < rowSize; j++)
-        {
-            if (data[i][j] == value)
-            {
-                return data;
-            }
-        }
-    }
-    return vector<vector<T>>();
+    return data[row][col];
 }
 
 template <typename T>

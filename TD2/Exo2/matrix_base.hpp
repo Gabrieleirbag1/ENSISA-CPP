@@ -18,7 +18,7 @@ public:
     size_t cols;
 
     virtual void addElement(size_t row, size_t col, T value);
-    virtual vector<vector<T>> getElement(T value) const;
+    virtual T getElement(size_t row, size_t col) const;
     virtual size_t getRows() const;
     virtual size_t getCols() const;
 

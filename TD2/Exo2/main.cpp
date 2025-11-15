@@ -11,11 +11,13 @@ int main() {
 
     matrixObj2.addElement(0, 0, 5);
 
-    vector<vector<int>> test = matrixObj2.getElement(5);
+    int test = matrixObj2.getElement(0, 0);
 
     matrixObj2.display(cout);
     matrixObj2.getRows();
     matrixObj2.getCols();
+
+    cout << "Element at (0,0): " << test << endl;
     
     return 0;
 }
