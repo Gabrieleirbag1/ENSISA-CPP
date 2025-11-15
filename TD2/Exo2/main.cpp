@@ -28,8 +28,14 @@ int main() {
     matrixNumObj.addElement(3, 3, 2);
     matrixNumObj.display(cout);
     MatrixNumerical<int> matrixAddition = matrixNumObj + matrixNumObj;
+    MatrixNumerical<int> matrixSubtraction = matrixNumObj - matrixNumObj;
+    MatrixNumerical<int> matrixMultiplication = matrixNumObj * matrixNumObj;
     cout << "After Addition: " << endl;
     matrixAddition.display(cout);
+    cout << "After Subtraction: " << endl;
+    matrixSubtraction.display(cout);
+    cout << "After Multiplication: " << endl;
+    matrixMultiplication.display(cout);
     cout << "Déterminant: " << matrixNumObj.getDeterminant() << endl << endl;
     
     return 0;
