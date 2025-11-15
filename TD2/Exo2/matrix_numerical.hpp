@@ -13,6 +13,11 @@ class MatrixNumerical : MatrixBase<T>
 public:
     MatrixNumerical();
     MatrixNumerical(size_t rows, size_t cols, T value);
+
+    virtual T getDeterminant() const;
 };
 
+#include "matrix_numerical.tpp"
+
 #endif
+
