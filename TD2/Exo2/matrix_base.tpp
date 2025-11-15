@@ -7,6 +7,12 @@ MatrixBase<T>::MatrixBase()
 }
 
 template <typename T>
+MatrixBase<T>::MatrixBase(std::vector<std::vector<T>> _data) : data(_data), rows(_data.size()), cols(_data.empty() ? 0 : _data[0].size())
+{
+}
+
+
+template <typename T>
 MatrixBase<T>::MatrixBase(size_t rows, size_t cols, T value)
 {
     data.assign(rows, vector<T>(cols, value));

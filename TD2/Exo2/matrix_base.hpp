@@ -11,6 +11,7 @@ class MatrixBase
 {
 public:
     MatrixBase();
+    MatrixBase(std::vector<std::vector<T>> data);
     MatrixBase(size_t rows, size_t cols, T value);
 
     vector<vector<T>> data;
