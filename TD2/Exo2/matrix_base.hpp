@@ -1,8 +1,8 @@
-#include <vector>
-#include <ostream>
-
 #ifndef MATRIX_BASE_H
 #define MATRIX_BASE_H
+
+#include <vector>
+#include <ostream>
 
 using namespace std;
 

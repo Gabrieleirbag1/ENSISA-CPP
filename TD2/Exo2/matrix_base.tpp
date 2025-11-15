@@ -1,4 +1,4 @@
-#include "matrix_base.h"
+#include "matrix_base.hpp"
 #include <iostream>
 
 template <typename T>
