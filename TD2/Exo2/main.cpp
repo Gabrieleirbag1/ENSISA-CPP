@@ -63,6 +63,11 @@ int main() {
     MatrixNumerical<double> matrixInverse = matrixInvObj.getInverse();
     cout << "Inverse Matrix: " << endl;
     matrixInverse.display(cout);
+
+    cout << endl << "-----------------------" << endl;
+    cout << "MATRIX IDENTITY TEST" << endl;
+    MatrixNumerical<int> matrixIdentity = MatrixNumerical<int>::getIdentity(16);
+    matrixIdentity.display(cout);
     
     return 0;
 }
