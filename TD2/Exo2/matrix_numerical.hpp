@@ -15,8 +15,9 @@ public:
     MatrixNumerical(std::vector<std::vector<T>> data);
     MatrixNumerical(size_t rows, size_t cols, T value);
 
-    virtual T getDeterminant() const;
-    virtual MatrixNumerical<T> getInverse() const;
+    T getDeterminant() const;
+    MatrixNumerical<T> getInverse() const;
+    static MatrixNumerical<T> getIdentity(int matrice_size);
 
     MatrixNumerical<T> operator+(const MatrixNumerical<T>& other) const;
     MatrixNumerical<T> operator-(const MatrixNumerical<T>& other) const;

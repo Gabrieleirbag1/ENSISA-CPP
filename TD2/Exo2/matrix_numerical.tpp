@@ -1,4 +1,5 @@
 #include "matrix_numerical.hpp"
+#include <cmath>
 
 template <typename T>
 MatrixNumerical<T> getCofactor(const MatrixNumerical<T> &matrix, size_t p, size_t q, size_t matrice_size)
@@ -181,4 +182,15 @@ MatrixNumerical<T> MatrixNumerical<T>::getInverse() const
         }
     }
     return inverse;
+}
+
+template <typename T>
+MatrixNumerical<T> MatrixNumerical<T>::getIdentity(int matrice_size)
+{
+    int matrice_size_sqrt = sqrt(matrice_size);
+    MatrixNumerical<T> matriceIdentity(matrice_size_sqrt, matrice_size_sqrt, 0);
+    for (unsigned int i = 0; i < matrice_size_sqrt; i++) {
+        matriceIdentity.addElement(i, i, 1);
+    }
+    return matriceIdentity;
 }
