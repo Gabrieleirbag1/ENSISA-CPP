@@ -1,6 +1,31 @@
 #include "matrix_numerical.hpp"
 
 template <typename T>
+MatrixNumerical<T> getCofactor(const MatrixNumerical<T> &matrix, size_t p, size_t q, size_t matrice_size)
+{
+    MatrixNumerical<T> cofactorMatrix(matrice_size - 1, matrice_size - 1, T());
+    size_t i_cofactor = 0, j_cofactor = 0;
+
+    for (size_t i = 0; i < matrice_size; i++)
+    {
+        for (size_t j = 0; j < matrice_size; j++)
+        {
+            if (i != p && j != q)
+            {
+                cofactorMatrix.addElement(i_cofactor, j_cofactor, matrix.getElement(i, j));
+                j_cofactor++;
+                if (j_cofactor == matrice_size - 1)
+                {
+                    j_cofactor = 0;
+                    i_cofactor++;
+                }
+            }
+        }
+    }
+    return cofactorMatrix;
+}
+
+template <typename T>
 MatrixNumerical<T>::MatrixNumerical() : MatrixBase<T>()
 {
 }
