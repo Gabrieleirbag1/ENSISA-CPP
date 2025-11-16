@@ -16,6 +16,7 @@ public:
     MatrixNumerical(size_t rows, size_t cols, T value);
 
     virtual T getDeterminant() const;
+    virtual MatrixNumerical<T> getInverse() const;
 
     MatrixNumerical<T> operator+(const MatrixNumerical<T>& other) const;
     MatrixNumerical<T> operator-(const MatrixNumerical<T>& other) const;

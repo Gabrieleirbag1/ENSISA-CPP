@@ -138,3 +138,35 @@ T MatrixNumerical<T>::getDeterminant() const
 
     return determinant;
 }
+
+template <typename T>
+MatrixNumerical<T> MatrixNumerical<T>::getInverse() const
+{
+    if (this->rows != this->cols)
+    {
+        throw std::invalid_argument("Inverse is only defined for square matrices.");
+    }
+    size_t matrice_size = this->rows;
+    T determinant = this->getDeterminant();
+
+    MatrixNumerical<T> adjugate(matrice_size, matrice_size, T());
+    for (size_t i = 0; i < matrice_size; i++)
+    {
+        for (size_t j = 0; j < matrice_size; j++)
+        {
+            MatrixNumerical<T> cofactorMatrix = getCofactor(*this, i, j, matrice_size);
+            T cofactorDet = cofactorMatrix.getDeterminant();
+            T sign = ((i + j) % 2 == 0) ? 1 : -1;
+            adjugate.addElement(j, i, sign * cofactorDet); // Note the transpose here
+        }
+    }
+    MatrixNumerical<T> inverse(matrice_size, matrice_size, T());
+    for (size_t i = 0; i < matrice_size; i++)
+    {
+        for (size_t j = 0; j < matrice_size; j++)
+        {
+            inverse.addElement(i, j, adjugate.getElement(i, j) / determinant);
+        }
+    }
+    return inverse;
+}
