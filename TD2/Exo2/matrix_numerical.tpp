@@ -149,6 +149,11 @@ MatrixNumerical<T> MatrixNumerical<T>::getInverse() const
     size_t matrice_size = this->rows;
     T determinant = this->getDeterminant();
 
+    if (determinant == T())
+    {
+        throw std::runtime_error("Matrix is singular and cannot be inverted.");
+    }
+
     MatrixNumerical<T> adjugate(matrice_size, matrice_size, T());
     for (size_t i = 0; i < matrice_size; i++)
     {
