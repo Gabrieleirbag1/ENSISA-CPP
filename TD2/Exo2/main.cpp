@@ -5,43 +5,49 @@
 
 using namespace std;
 
-int main() {
-
-    MatrixBase<int> matrixObj;   
+template <typename T>
+void runMatrixTests(const string& typeName) {
+    cout << "\n=======================================" << endl;
+    cout << "TESTING WITH TYPE: " << typeName << endl;
+    cout << "=======================================" << endl;
     
-    cout << "MATRIX BASE TESTS" << endl;
-    MatrixBase<int> matrixObj2(5, 5, 0);
-    matrixObj2.addElement(0, 0, 5);
+    // Matrix Base Tests
+    cout << "\nMATRIX BASE TESTS" << endl;
+    MatrixBase<T> matrixObj2(5, 5, T(0));
+    matrixObj2.addElement(0, 0, T(5));
     matrixObj2.display(cout);
-    int testElement = matrixObj2.getElement(0, 0);
-    cout << endl << "TESTING METHODS" << endl;
+    T testElement = matrixObj2.getElement(0, 0);
+    cout << "\nTESTING METHODS" << endl;
     cout << "getRows: " << matrixObj2.getRows() << endl;
     cout << "getCols: " << matrixObj2.getCols() << endl;
-    cout << "getelement " << testElement << endl;
+    cout << "getElement: " << testElement << endl;
 
-    cout << endl << "-----------------------" << endl;
+    // Matrix Numerical Tests
+    cout << "\n-----------------------" << endl;
     cout << "MATRIX NUMERICAL TESTS" << endl;
     cout << "Matrix 1: " << endl;
-    MatrixNumerical<int> matrixNumObj(4, 4, 0);
-    matrixNumObj.addElement(0, 0, 5);
-    matrixNumObj.addElement(1, 1, 2);
-    matrixNumObj.addElement(2, 2, 2);
-    matrixNumObj.addElement(3, 3, 2);
+    MatrixNumerical<T> matrixNumObj(4, 4, T(0));
+    matrixNumObj.addElement(0, 0, T(5));
+    matrixNumObj.addElement(1, 1, T(2));
+    matrixNumObj.addElement(2, 2, T(2));
+    matrixNumObj.addElement(3, 3, T(2));
     matrixNumObj.display(cout);
 
     cout << "Matrix 2: " << endl;
-    MatrixNumerical<int> matrixNumObj2(4, 4, 0);
-    matrixNumObj2.addElement(0, 0, 8);
-    matrixNumObj2.addElement(1, 1, 3);
-    matrixNumObj2.addElement(2, 2, 2);
-    matrixNumObj2.addElement(3, 3, 9);
+    MatrixNumerical<T> matrixNumObj2(4, 4, T(0));
+    matrixNumObj2.addElement(0, 0, T(8));
+    matrixNumObj2.addElement(1, 1, T(3));
+    matrixNumObj2.addElement(2, 2, T(2));
+    matrixNumObj2.addElement(3, 3, T(9));
     matrixNumObj2.display(cout);
 
-    MatrixNumerical<int> matrixAddition = matrixNumObj + matrixNumObj2;
-    MatrixNumerical<int> matrixSubtraction = matrixNumObj - matrixNumObj2;
-    MatrixNumerical<int> matrixMultiplication = matrixNumObj * matrixNumObj2;
-    MatrixNumerical<int> matrixDivision = matrixNumObj / matrixNumObj2;
-    cout << endl << "After Addition: " << endl;
+    // Operations
+    MatrixNumerical<T> matrixAddition = matrixNumObj + matrixNumObj2;
+    MatrixNumerical<T> matrixSubtraction = matrixNumObj - matrixNumObj2;
+    MatrixNumerical<T> matrixMultiplication = matrixNumObj * matrixNumObj2;
+    MatrixNumerical<T> matrixDivision = matrixNumObj / matrixNumObj2;
+    
+    cout << "\nAfter Addition: " << endl;
     matrixAddition.display(cout);
     cout << "After Subtraction: " << endl;
     matrixSubtraction.display(cout);
@@ -49,25 +55,33 @@ int main() {
     matrixMultiplication.display(cout);
     cout << "After Division: " << endl;
     matrixDivision.display(cout);
-    cout << "Determinant: " << matrixNumObj.getDeterminant() << endl << endl;
+    cout << "Determinant: " << matrixNumObj.getDeterminant() << endl;
 
-    cout << endl << "-----------------------" << endl;
+    // Inverse Matrix Test
+    cout << "\n-----------------------" << endl;
     cout << "INVERSE MATRIX TEST" << endl;
-    MatrixNumerical<double> matrixInvObj(2, 2, 0.0);
-    matrixInvObj.addElement(0, 0, 4.0);
-    matrixInvObj.addElement(0, 1, 7.0);
-    matrixInvObj.addElement(1, 0, 2.0);
-    matrixInvObj.addElement(1, 1, 6.0);
+    MatrixNumerical<T> matrixInvObj(2, 2, T(0));
+    matrixInvObj.addElement(0, 0, T(4));
+    matrixInvObj.addElement(0, 1, T(7));
+    matrixInvObj.addElement(1, 0, T(2));
+    matrixInvObj.addElement(1, 1, T(6));
     cout << "Matrix to invert: " << endl;
     matrixInvObj.display(cout);
-    MatrixNumerical<double> matrixInverse = matrixInvObj.getInverse();
+    MatrixNumerical<T> matrixInverse = matrixInvObj.getInverse();
     cout << "Inverse Matrix: " << endl;
     matrixInverse.display(cout);
 
-    cout << endl << "-----------------------" << endl;
-    cout << "MATRIX IDENTITY TEST" << endl;
-    MatrixNumerical<int> matrixIdentity = MatrixNumerical<int>::getIdentity(16);
+    // Identity Matrix Test
+    cout << "\n-----------------------" << endl;
+    cout << "MATRIX IDENTITY TEST (4x4)" << endl;
+    MatrixNumerical<T> matrixIdentity = MatrixNumerical<T>::getIdentity(4);
     matrixIdentity.display(cout);
+}
+
+int main() {
+    runMatrixTests<int>("int");
+    runMatrixTests<float>("float");
+    runMatrixTests<double>("double");
     
     return 0;
 }
