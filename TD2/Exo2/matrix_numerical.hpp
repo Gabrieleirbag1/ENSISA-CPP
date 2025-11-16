@@ -21,6 +21,7 @@ public:
     MatrixNumerical<T> operator+(const MatrixNumerical<T>& other) const;
     MatrixNumerical<T> operator-(const MatrixNumerical<T>& other) const;
     MatrixNumerical<T> operator*(const MatrixNumerical<T>& other) const;
+    MatrixNumerical<T> operator/(const MatrixNumerical<T>& other) const;
 };
 
 #include "matrix_numerical.tpp"

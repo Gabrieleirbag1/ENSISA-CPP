@@ -95,6 +95,13 @@ MatrixNumerical<T> MatrixNumerical<T>::operator*(const MatrixNumerical<T> &other
 }
 
 template <typename T>
+MatrixNumerical<T> MatrixNumerical<T>::operator/(const MatrixNumerical<T> &other) const
+{
+    MatrixNumerical<T> inv_matrice = other.getInverse();
+    return *this * inv_matrice;
+}
+
+template <typename T>
 T MatrixNumerical<T>::getDeterminant() const
 {
     if (this->rows != this->cols)
