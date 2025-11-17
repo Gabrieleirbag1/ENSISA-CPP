@@ -45,7 +45,8 @@ int main(int argc, char const *argv[])
 
     cout << "\nFrequency (Optimal):" << endl;
     map<int, int> frequencyMapOptimal = countFrequencyOptimal(numbers);
-    for (const auto& entry : frequencyMapOptimal) {
+    for (const auto &entry : frequencyMapOptimal)
+    {
         cout << entry.first << ": " << entry.second << " times" << endl;
     }
     return 0;
