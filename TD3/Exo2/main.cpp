@@ -6,7 +6,6 @@ using namespace std;
 
 vector<int> twoSumBruteForce(const vector<int> &nums, int target)
 {
-    // Votre code
     for (int i = 0; i < nums.size(); i++)
     {
         int number = nums[i];
@@ -21,12 +20,22 @@ vector<int> twoSumBruteForce(const vector<int> &nums, int target)
             }
         }
     }
-    return vector<int>{50, 50};
+    return vector<int>{-1, -1};
 }
 
 vector<int> twoSumOptimal(const vector<int> &nums, int target)
 {
-    // Votre code
+    unordered_map<int, int> numbers;
+    for (int i = 0; i < nums.size(); i++)
+    {
+        int number = nums[i];
+        int complement = target - number;
+        if (numbers.find(complement) != numbers.end()) {
+            return vector<int>{numbers[complement], i};
+        }
+        numbers[number] = i;
+    }
+    return vector<int>{-1, -1};
 }
 
 int main()
