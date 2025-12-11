@@ -1,4 +1,4 @@
-#include "trainerCard.h"
+#include "headers/trainerCard.h"
 
 TrainerCard::TrainerCard() : Card() {}
 

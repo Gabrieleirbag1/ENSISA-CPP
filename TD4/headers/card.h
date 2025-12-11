@@ -1,5 +1,5 @@
-#ifndef MATRIX_BASE_H
-#define MATRIX_BASE_H
+#ifndef CARD_H
+#define CARD_H
 
 #include <string>
 using namespace std;

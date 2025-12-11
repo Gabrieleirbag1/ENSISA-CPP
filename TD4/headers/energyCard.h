@@ -12,6 +12,8 @@ public:
     string getEnergyType() const;
     void setEnergyType(string);
 
+    virtual void displayInfo() const override;
+
 private:
     string energyType;
 };

@@ -33,6 +33,8 @@ public:
     void setAttackDescription(string);
     void setAttackDamage(int);
 
+    virtual void displayInfo() const override;
+
 private:
     string pokemonType;
     string familyName;

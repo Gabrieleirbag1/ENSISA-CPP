@@ -12,6 +12,8 @@ public:
     string getTrainerEffect() const;
     void setTrainerEffect(string);
 
+    virtual void displayInfo() const override;
+
 private:
     string trainerEffect;
 };

@@ -1,4 +1,4 @@
-#include "energyCard.h"
+#include "headers/energyCard.h"
 
 EnergyCard::EnergyCard() : Card() {}
 

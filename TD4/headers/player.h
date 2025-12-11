@@ -5,6 +5,7 @@
 #include <string>
 #include "card.h"
 #include "pokemonCard.h"
+#include "energyCard.h"
 
 using namespace std;
 
@@ -13,6 +14,8 @@ class Player {
         Player();
         Player(string);
         Player(string, vector<Card*>, vector<PokemonCard*>);
+
+        void addCardToBench(Card*);
 
     private:
         string playerName;

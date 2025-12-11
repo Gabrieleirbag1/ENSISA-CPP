@@ -1,4 +1,4 @@
-#include "pokemonCard.h"
+#include "headers/pokemonCard.h"
 
 PokemonCard::PokemonCard() : Card() {}
 
