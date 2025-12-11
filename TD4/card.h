@@ -7,7 +7,7 @@ using namespace std;
 class Card {
     public:
         Card();
-        Card(string cardName);
+        Card(string _cardName);
 
         virtual void displayInfo() const = 0;
 
