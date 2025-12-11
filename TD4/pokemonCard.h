@@ -18,6 +18,8 @@ public:
     vector<tuple<int, int, string, int>> getAttacks() const;
     int getEnergyCost() const;
     int getCurrentEnergyCost() const;
+    string getAttackDescription() const;
+    int getAttackDamage() const;
 
     void setPokemonType(string);
     void setFamilyName(string);
@@ -27,6 +29,8 @@ public:
     void setAttacks(vector<tuple<int, int, string, int>>);
     void setEnergyCost(int);
     void setCurrentEnergyCost(int);
+    void setAttackDescription(string);
+    void setAttackDamage(int);
 
 private:
     string pokemonType;
@@ -37,6 +41,8 @@ private:
     vector<tuple<int, int, string, int>> attacks;
     int energyCost;
     int currentEnergyCost;
+    string attackDescription;
+    int attackDamage;
 };
 
 #endif
