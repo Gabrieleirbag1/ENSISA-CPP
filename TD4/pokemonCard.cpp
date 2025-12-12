@@ -6,6 +6,7 @@ PokemonCard::PokemonCard() : Card() {}
 PokemonCard::PokemonCard(string cardName) : Card(cardName) {}
 
 PokemonCard::PokemonCard(
+    string _cardName,
     string _pokemonType,
     string _familyName,
     int _evolutionLevel,
@@ -14,7 +15,7 @@ PokemonCard::PokemonCard(
     int _energyCost, int _currentEnergyCost,
     string _attackDescription,
     int _attackDamage)
-    : Card("Pokemon"), 
+    : Card(_cardName), 
     pokemonType(_pokemonType), 
     familyName(_familyName), 
     evolutionLevel(_evolutionLevel), 
