@@ -26,6 +26,32 @@ PokemonCard::PokemonCard(
     attackDescription(_attackDescription),
      attackDamage(_attackDamage) {}
 
+// Simplified constructor with attack parameters
+PokemonCard::PokemonCard(
+    string _cardName,
+    string _pokemonType,
+    string _familyName,
+    int _evolutionLevel,
+    int _maxHP,
+    int attack1Cost,
+    string attack1Desc,
+    int attack1Damage,
+    int attack2Cost,
+    string attack2Desc,
+    int attack2Damage)
+    : Card(_cardName),
+    pokemonType(_pokemonType),
+    familyName(_familyName),
+    evolutionLevel(_evolutionLevel),
+    maxHP(_maxHP),
+    hp(_maxHP),
+    energyCost(0),
+    currentEnergyCost(0)
+{
+    attacks.push_back(make_tuple(attack1Cost, attack1Damage, attack1Desc, attack1Cost));
+    attacks.push_back(make_tuple(attack2Cost, attack2Damage, attack2Desc, attack2Cost));
+}
+
 string PokemonCard::getPokemonType() const
 {
     return pokemonType;

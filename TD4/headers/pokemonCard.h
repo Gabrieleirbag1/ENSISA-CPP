@@ -11,6 +11,7 @@ public:
     PokemonCard();
     PokemonCard(string _cardName);
     PokemonCard(string, string, string, int, int, int, vector<tuple<int, int, string, int>>, int, int, string, int);
+    PokemonCard(string, string, string, int, int, int, string, int, int, string, int);
 
     string getPokemonType() const;
     string getFamilyName() const;
