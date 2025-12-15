@@ -3,7 +3,7 @@
 
 EnergyCard::EnergyCard() : Card() {}
 
-EnergyCard::EnergyCard(string _cardName = "Energy") : Card(_cardName) {}
+EnergyCard::EnergyCard(string _energyType) : Card(_energyType), energyType(_energyType) {}
 
 string EnergyCard::getEnergyType() const {
     return energyType;
