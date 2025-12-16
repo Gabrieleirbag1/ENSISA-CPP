@@ -19,7 +19,6 @@ public:
     vector<double> getData() const;
     vector<int> getlabels() const;
     int getMaxLength() const;
-    int getMaxLength() const;
     int getNumberOfSamples() const;
 
     void setZnormalise(bool);
