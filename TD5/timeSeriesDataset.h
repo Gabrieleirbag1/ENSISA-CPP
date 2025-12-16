@@ -2,6 +2,9 @@
 #define TIME_SERIES_DATA_H
 
 #include <vector>
+#include <cmath>
+#include <limits>
+#include <algorithm>
 
 using namespace std;
 
@@ -26,7 +29,8 @@ public:
     void setMaxLength(int);
     void setNumberOfSamples(int);
 
-    double euclidean_distance(const vector<double> distance1, const vector<double> distance2);
+    double euclidean_distance(const vector<double> distance1, const vector<double> distance2 );
+    double dynamicTimeWarping(const vector<double> &ts1, const vector<double> &ts2);
 private:
     bool znormalise;
     bool isTrain;
