@@ -1,6 +1,7 @@
 #include "timeSeriesDataset.hpp"
 
 TimeSeriesDataset::TimeSeriesDataset() {}
+TimeSeriesDataset::TimeSeriesDataset(bool _znormalise, bool _isTrain) : znormalise(_znormalise), isTrain(_isTrain), maxLength(0), numberOfSamples(0) {}
 TimeSeriesDataset::TimeSeriesDataset(bool _znormalise, bool _isTrain, vector<double> _data, vector<int> _labels, int _maxLength, int _numberOfSamples) :
     znormalise(_znormalise), isTrain(_isTrain), data(_data), labels(_labels), maxLength(_maxLength), numberOfSamples(_numberOfSamples) {}
 
@@ -41,6 +42,29 @@ void TimeSeriesDataset::setNumberOfSamples(int _numberOfSamples) {
     numberOfSamples = _numberOfSamples;
 }
 
+void TimeSeriesDataset::addTimeSeries(const vector<double>& series) {
+    if (isTrain) throw runtime_error("Cannot add unlabeled series to train data");
+    data.insert(data.end(), series.begin(), series.end());
+    numberOfSamples++;
+    if (numberOfSamples == 1) maxLength = series.size();
+    else if ((int)series.size() != maxLength) throw runtime_error("Series length mismatch");
+}
+
+void TimeSeriesDataset::addTimeSeries(const vector<double>& series, int label) {
+    if (!isTrain) throw runtime_error("Cannot add labeled series to test data");
+    data.insert(data.end(), series.begin(), series.end());
+    labels.push_back(label);
+    numberOfSamples++;
+    if (numberOfSamples == 1) maxLength = series.size();
+    else if ((int)series.size() != maxLength) throw runtime_error("Series length mismatch");
+}
+
+vector<double> TimeSeriesDataset::getTimeSeries(int index) const {
+    if (index < 0 || index >= numberOfSamples) throw runtime_error("Index out of range");
+    int start = index * maxLength;
+    return vector<double>(data.begin() + start, data.begin() + start + maxLength);
+}
+
 double TimeSeriesDataset::euclidean_distance(const vector<double> distance1, const vector<double> distance2 ) {
     double sum = 0.0;
     for (size_t i = 0; i < distance1.size(); ++i) {
@@ -62,9 +86,9 @@ double TimeSeriesDataset::dynamicTimeWarping(const vector<double> &ts1, const ve
         for (size_t j = 1; j <= m; ++j) {
             double cost = fabs(ts1[i - 1] - ts2[j - 1]);
             dtw[i][j] = cost + min({dtw[i - 1][j],    // insertion
-                                    dtw[i][j - 1],    // deletion
-                                    dtw[i - 1][j - 1] // match
-                                   });
+                                     dtw[i][j - 1],    // deletion
+                                     dtw[i - 1][j - 1] // match
+                                    });
         }
     }
     return sqrt(dtw[n][m]);

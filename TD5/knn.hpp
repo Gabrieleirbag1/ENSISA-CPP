@@ -3,8 +3,12 @@
 
 #include <vector>
 #include <string>
+#include <map>
+#include <algorithm>
 
 using namespace std;
+
+class TimeSeriesDataset; // forward declaration
 
 class KNN {
     public:
@@ -17,6 +21,8 @@ class KNN {
 
         void setK(int);
         void setSimilarityMeasure(string);
+
+        double evaluate(const TimeSeriesDataset& train, const TimeSeriesDataset& test, const vector<int>& ground_truth);
 
     private:
         int k;

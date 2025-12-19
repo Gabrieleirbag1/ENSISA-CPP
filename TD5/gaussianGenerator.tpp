@@ -1,8 +1,8 @@
 #include "gaussianGenerator.hpp"
 
-GaussianGenerator::GaussianGenerator() : TimeSeriesGenerator() {}
+GaussianGenerator::GaussianGenerator() : TimeSeriesGenerator(), moyenne(0.0), ecartType(1.0) {}
 
-GaussianGenerator::GaussianGenerator(int _seed) : TimeSeriesGenerator(_seed) {}
+GaussianGenerator::GaussianGenerator(int _seed) : TimeSeriesGenerator(_seed), moyenne(0.0), ecartType(1.0) {}
 
 vector<double> GaussianGenerator::generateTimeseries(int length) const {
     vector<double> series;

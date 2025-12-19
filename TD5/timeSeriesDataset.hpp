@@ -5,6 +5,7 @@
 #include <cmath>
 #include <limits>
 #include <algorithm>
+#include <stdexcept>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ class TimeSeriesDataset
 {
 public:
     TimeSeriesDataset();
+    TimeSeriesDataset(bool, bool);
     TimeSeriesDataset(bool, bool, vector<double>, vector<int>, int, int);
     
     bool getZnormalise() const;
@@ -28,8 +30,12 @@ public:
     void setMaxLength(int);
     void setNumberOfSamples(int);
 
-    double euclidean_distance(const vector<double> distance1, const vector<double> distance2 );
-    double dynamicTimeWarping(const vector<double> &ts1, const vector<double> &ts2);
+    void addTimeSeries(const vector<double>& series);
+    void addTimeSeries(const vector<double>& series, int label);
+    vector<double> getTimeSeries(int index) const;
+
+    static double euclidean_distance(const vector<double> distance1, const vector<double> distance2 );
+    static double dynamicTimeWarping(const vector<double> &ts1, const vector<double> &ts2);
 private:
     bool znormalise;
     bool isTrain;
